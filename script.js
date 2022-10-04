@@ -31,13 +31,23 @@ function generatePassword() {
   var useSpecialChar = window.confirm('do you want to use special characters');
   console.log({useSpecialChar});
 
+var LowerCaseList= ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+var UpperCaseList=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+var NumberList= ['1','2','3','4','5','6','7','8','9','0'];
+var SpecialCharList=['!','@','#','$','%','^','&','*'];
 
-  return;
-  // if () ;
+for (let i = e; i <   ; i++) {
+
+let - Math.floor(Math.random( + List.length))
+}
+
+  // if (useLowerCase --- true) {
+
+  };
   // else {
   //   window.alert('Must be between 8-126 characters')
   // }
-}
+
 
 // var passwordText=[UpperCase + LowerCase + Number 
 // + SpecialChar] ;
