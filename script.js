@@ -1,73 +1,120 @@
-// Assignment Code
-var generateBtn = document.querySelector("#generate");
 
-var LowerCase= ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
-var UpperCase=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
-var Number= ['1','2','3','4','5','6','7','8','9','0'];
-var SpecialChar= ['!','@','#','$','%','^','&','*'];
+var generateBtn = document.querySelector("#generate");
+var passwordText = "password";
+
+var lowerCaseChars = [
+  "a",
+  "b",
+  "c",
+  "d",
+  "e",
+  "f",
+  "g",
+  "h",
+  "i",
+  "j",
+  "k",
+  "l",
+  "m",
+  "n",
+  "o",
+  "p",
+  "q",
+  "r",
+  "s",
+  "t",
+  "u",
+  "v",
+  "w",
+  "x",
+  "y",
+  "z",
+];
+var upperCaseChars = [
+  "A",
+  "B",
+  "C",
+  "D",
+  "E",
+  "F",
+  "G",
+  "H",
+  "I",
+  "J",
+  "K",
+  "L",
+  "M",
+  "N",
+  "O",
+  "P",
+  "Q",
+  "R",
+  "S",
+  "T",
+  "U",
+  "V",
+  "W",
+  "X",
+  "Y",
+  "Z",
+];
+var numberChars = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
+var specialChars = ["!", "@", "#", "$", "%", "^", "&", "*"];
 
 function generatePassword() {
-  var lengthPrompt = window.prompt( "How many characters do you want");
+  var lengthPrompt = window.prompt("How many characters do you want");
 
   lengthPrompt = parseInt(lengthPrompt);
 
   console.log(lengthPrompt);
   console.log(typeof lengthPrompt);
 
-  if(lengthPrompt < 8 || lengthPrompt > 128 || !lengthPrompt){
-    window.alert('please enter an appropriate number');
+  if (lengthPrompt < 8 || lengthPrompt > 128 || !lengthPrompt) {
+    window.alert("please enter an appropriate number");
     return;
   }
 
-  var useLowerCase = window.confirm('do you want to use lower-case letters');
-  console.log({useLowerCase});
+  var useLowerCase = window.confirm("do you want to use lower-case letters");
+  console.log({ useLowerCase });
 
-  var useUpperCase = window.confirm('do you want to use upper-case letters');
-  console.log({useUpperCase});
-  
-  var useNumber = window.confirm('do you want to use numbers');
-  console.log ({useNumber});
+  var useUpperCase = window.confirm("do you want to use upper-case letters");
+  console.log({ useUpperCase });
 
-  var useSpecialChar = window.confirm('do you want to use special characters');
-  console.log({useSpecialChar});
+  var useNumber = window.confirm("do you want to use numbers");
+  console.log({ useNumber });
 
-var LowerCaseList= ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
-var UpperCaseList=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
-var NumberList= ['1','2','3','4','5','6','7','8','9','0'];
-var SpecialCharList=['!','@','#','$','%','^','&','*'];
+  var useSpecialChar = window.confirm("do you want to use special characters");
+  console.log({ useSpecialChar });
 
-for (let i = e; i <   ; i++) {
+  var availableChars = [];
+  if (useLowerCase) {
+    availableChars = availableChars.concat(lowerCaseChars);
+  }
+  if (useUpperCase) {
+    availableChars = availableChars.concat(upperCaseChars);
+  }
+  if (useNumber) {
+    availableChars = availableChars.concat(numberChars);
+  }
+  if (useSpecialChar) {
+    availableChars = availableChars.concat(specialChars);
+  }
+  console.log(availableChars);
+  if (!useLowerCase && !useLowerCase && !useNumber && !useSpecialChar) {
+    alert("Please use lowercase, uppercase, number, and special characters");
+    return;
+  }
 
-let - Math.floor(Math.random( + List.length))
+  var newPassword = "";
+  for (var i = 0; i < lengthPrompt; i++) {
+    var randomChar =
+      availableChars[Math.floor(Math.random() * availableChars.length - 1)];
+    console.log(randomChar);
+    newPassword += randomChar;
+  }
+
+  return newPassword;
 }
-
-  // if (useLowerCase --- true) {
-
-  };
-  // else {
-  //   window.alert('Must be between 8-126 characters')
-  // }
-
-
-// var passwordText=[UpperCase + LowerCase + Number 
-// + SpecialChar] ;
-
-
-//   var userInput=confirm('what is the password length') ;
-//   if (isLengthPrompt) {
-//      var userInput= confirm;
-//   }
-//  else {
-//   return;
-//   }
-// var userInput=confirm('what is the password length') ;
-// if ( isPasswordText){
-//    var userInput= confirm;
-//   }
-//  else {
-// return ;
-// }
-
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
